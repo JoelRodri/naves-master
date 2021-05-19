@@ -34,6 +34,8 @@ public class ScoreBoard {
 
     List<Score> scoreList = new ArrayList<>();
 
+    List<Score> scoreListDes = new ArrayList<>();
+
     /**
      * @param puntos
      * @return
@@ -133,8 +135,21 @@ public class ScoreBoard {
                 String nombre = scanner.next();
                 int puntos = scanner.nextInt();
 
-                scoreList.add(new Score(nombre, puntos));
+                scoreListDes.add(new Score(nombre, puntos));
             }
+
+            while (scoreListDes.size() > 0){
+                int maxPuntuacion = 0;
+                for (int i = 0; i < scoreListDes.size(); i++) {
+                    if (scoreListDes.get(i).puntuacion > scoreListDes.get(maxPuntuacion).puntuacion){
+                        maxPuntuacion = i;
+                    }
+                }
+                scoreList.add(scoreListDes.get(maxPuntuacion));
+                scoreListDes.remove(maxPuntuacion);
+            }
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

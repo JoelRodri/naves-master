@@ -116,20 +116,3 @@ public class MyGdxGame extends ApplicationAdapter {
         batch.end();
     }
 }
-
-
-
-
-
-
-
-
-/*
-
-init();
-
-create();
-
-while(true) render();
-
- */
